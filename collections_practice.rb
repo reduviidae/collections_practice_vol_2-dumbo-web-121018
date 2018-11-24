@@ -52,6 +52,7 @@ def count_elements(array)
     end
     if mutated.include?(obj)
       obj[:count] += 1
+      mutated.delete(mutated[0])
     end
     mutated.push(obj)
   end
@@ -59,8 +60,8 @@ def count_elements(array)
   return mutated
 end
 
-def merge_data(keys, data)
-  
+def merge_data(v1, v2)
+  # v1[0].values.map.with_index {|v, i| v2[i].merge(v)}
 end
 
 # using select on hashes
@@ -70,8 +71,9 @@ end
 
 def find_cool(cool)
   cool.select {|k,v| k == "cool"}
-  new_array
 end
 
 def organize_schools(schools)
+  # binding.pry
+  schools.sort.to_h
 end
