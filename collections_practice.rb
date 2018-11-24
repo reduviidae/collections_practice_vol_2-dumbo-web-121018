@@ -48,14 +48,12 @@ def count_elements(array)
     # binding.pry
 		# Some more code stuff here
 		  obj[:count] = array.count(hash)
-		  obj[:name] = name
+		  obj[:name] = name
     end
-    if mutated.empty?
-      mutated.push(obj)
-    else 
-      obj[:count] = obj[:count] + 1
-      mutated.push(obj)
+    if mutated.include?(obj)
+      obj[:count] += 1
     end
+    mutated.push(obj)
   end
   
   return mutated
