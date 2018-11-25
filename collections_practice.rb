@@ -109,14 +109,17 @@ def merge_data(array1, array2)
   # binding.pry
   new_array = []
   i = 0 
+  binding.pry
   while i < array1.length
     array1.each do |element|
       new_array << element
     end
     array2[i].each do |key, value|
-      binding.pry
+      new_array[i] << value
     end
+    i += 1
   end
+  new_array
 end
 
 # using select on hashes
@@ -128,11 +131,12 @@ def find_cool(cool)
  # binding.pry
   i = 0
   object = []
-  binding.pry
+  # binding.pry
   while i < cool.length
     if cool[:tempterature] == "cool"
       object << cool[i]
     end
+    i += 1
   end
   object
 end
