@@ -71,32 +71,52 @@ end
 # 3. iterate through the value of the first name, adding each key value pair to the current hash that we have in array1
 # 
 
+## first attempt at merge_data for reference
+# def merge_data(array1, array2)
+#  # binding.pry
+#  i = 0 
+#  x = 0
+#  new_array = []
+#  object1 = {}
+#  object2 = {}
+#  while i < array1.length 
+#    array1[i].each do |key, value|
+#      keyHolder = key 
+#      valueHolder = value
+#      object1[keyHolder] = valueHolder
+#    end
+#    i += 1
+#  end
+#  # binding.pry
+#  while x < array2.length
+#    array2[x].each do |key, value|
+#      keyHolder = key
+#      valueHolder = value
+#      object2[keyHolder] = valueHolder
+#    end
+#    x += 1
+#  end
+#  binding.pry
+#  object1.merge(object2)
+# end
+
+
+# delete_if syntax
+# a = [ "a", "b", "c" ]
+# a.delete_if {|x| x >= "b" }   #=> ["a"]
+
 def merge_data(array1, array2)
   # binding.pry
-  i = 0 
-  x = 0
   new_array = []
-  object1 = {}
-  object2 = {}
-  while i < array1.length 
-    array1[i].each do |key, value|
-      keyHolder = key 
-      valueHolder = value
-      object1 = {keyHolder => valueHolder}
+  i = 0 
+  while i < array1.length
+    array1.each do |element|
+      new_array << element
     end
-    i += 1
-  end
-  # binding.pry
-  while x < array2.length
-    array2[x].each do |key, value|
-      keyHolder = key
-      valueHolder = value
-      object2 = {keyHolder => valueHolder}
+    array2[i].each do |key, value|
+      binding.pry
     end
-    x += 1
   end
-  # binding.pry
-  object1.merge(object2)
 end
 
 # using select on hashes
@@ -105,14 +125,16 @@ end
 # h.select {|k,v| v < 200}  #=> {"a" => 100}
 
 def find_cool(cool)
-  # binding.pry
+ # binding.pry
   i = 0
-  new_array = []
+  object = []
+  binding.pry
   while i < cool.length
-    new_array << cool[i].select {|k,v| v == "cool"}
-    i += 1
+    if cool[:tempterature] == "cool"
+      object << cool[i]
+    end
   end
-  new_array
+  object
 end
 
 def organize_schools(schools)
