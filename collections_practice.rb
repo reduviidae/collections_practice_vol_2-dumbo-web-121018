@@ -74,6 +74,7 @@ end
 def merge_data(array1, array2)
   # binding.pry
   i = 0 
+  x = 0
   new_array = []
   object1 = {}
   object2 = {}
@@ -83,13 +84,16 @@ def merge_data(array1, array2)
       valueHolder = value
       object1 = {keyHolder => valueHolder}
     end
-    binding.pry
-    array2[i].each do |key, value|
+    i += 1
+  end
+  # binding.pry
+  while x < array2.length
+    array2[x].each do |key, value|
       keyHolder = key
       valueHolder = value
       object2 = {keyHolder => valueHolder}
     end
-    i += 1
+    x += 1
   end
   # binding.pry
   object1.merge(object2)
