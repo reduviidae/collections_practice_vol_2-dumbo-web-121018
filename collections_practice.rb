@@ -72,6 +72,7 @@ end
 # 
 
 def merge_data(array1, array2)
+  # binding.pry
   i = 0 
   new_array = []
   object1 = {}
@@ -82,18 +83,15 @@ def merge_data(array1, array2)
       valueHolder = value
       object1 = {keyHolder => valueHolder}
     end
-    i += 1
-  end
-  x = 0 
-  while x < array2.length
-    array2[x].each do |key, value|
+    binding.pry
+    array2[i].each do |key, value|
       keyHolder = key
       valueHolder = value
       object2 = {keyHolder => valueHolder}
-    end 
-    x +=1
+    end
+    i += 1
   end
-  binding.pry
+  # binding.pry
   object1.merge(object2)
 end
 
@@ -103,5 +101,16 @@ end
 # h.select {|k,v| v < 200}  #=> {"a" => 100}
 
 def find_cool(cool)
-  cool.select {|k,v| k == "cool"}
+  # binding.pry
+  i = 0
+  new_array = []
+  while i < cool.length
+    new_array << cool[i].select {|k,v| v == "cool"}
+    i += 1
+  end
+  new_array
+end
+
+def organize_schools(schools)
+  schools.to_h.sort
 end
