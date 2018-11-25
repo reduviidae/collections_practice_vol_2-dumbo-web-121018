@@ -80,8 +80,8 @@ def merge_data(array1, array2)
     array1[i].each do |key, value|
       keyHolder = key 
       valueHolder = value
+      object1 = {keyHolder => valueHolder}
     end
-    object1 = {keyHolder => valueHolder}
     i += 1
   end
   x = 0 
@@ -89,8 +89,8 @@ def merge_data(array1, array2)
     array2[x].each do |key, value|
       keyHolder = key
       valueHolder = value
+      object2 = {keyHolder => valueHolder}
     end 
-    object2 = {keyHolder => valueHolder}
     x +=1
   end
   binding.pry
