@@ -60,8 +60,41 @@ def count_elements(array)
   return mutated
 end
 
-def merge_data(v1, v2)
-  # v1[0].values.map.with_index {|v, i| v2[i].merge(v)}
+# stack overflow suggestions for reference
+# # v1[0].values.map.with_index {|v, i| v2[i].merge(v)}
+#
+# # a.merge(b) { |k, x, y| x + y }
+
+# pseudo code from Benjamin
+# 1. construct a while loop so we can go through array1 and build off what we have
+# 2. find the first name so we can then go to array 2 and find the extra information that we need
+# 3. iterate through the value of the first name, adding each key value pair to the current hash that we have in array1
+# 
+
+def merge_data(array1, array2)
+  i = 0 
+  new_array = []
+  object1 = {}
+  object2 = {}
+  while i < array1.length 
+    array1[i].each do |key, value|
+      keyHolder = key 
+      valueHolder = value
+      object1 = {keyHolder => valueHolder}
+    end
+    i += 1
+  end
+  x = 0 
+  while x < array2.length
+    array2[x].each do |key, value|
+      keyHolder = key
+      valueHolder = value
+    object2 = {keyHolder => valueHolder}
+    end 
+  x +=1
+  end
+  binding.pry
+  object1.merge(object2)
 end
 
 # using select on hashes
@@ -71,9 +104,4 @@ end
 
 def find_cool(cool)
   cool.select {|k,v| k == "cool"}
-end
-
-def organize_schools(schools)
-  # binding.pry
-  schools.sort.to_h
 end
