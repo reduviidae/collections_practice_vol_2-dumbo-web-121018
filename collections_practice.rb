@@ -96,5 +96,5 @@ def find_cool(cool)
 end
 
 def organize_schools(schools)
-  schools.to_h.sort
+  binding.pry
 end
