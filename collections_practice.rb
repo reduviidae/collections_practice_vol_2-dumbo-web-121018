@@ -101,6 +101,10 @@ def organize_schools(schools)
     # binding.pry
     if name[1][:location] == "Chicago"
       sorted_schools["Chicago"] << name[0]
+    elsif name[1][:location] == "NYC"
+      sorted_schools["NYC"] << name[0]
+    else name[1][:location] == "SF"
+      sorted_schools["SF"] << name[0]
     end
   end
 end
