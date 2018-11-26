@@ -81,10 +81,10 @@ end
 # h.select {|k,v| v < 200}  #=> {"a" => 100}
 
 def find_cool(cool)
- binding.pry
+ # binding.pry
  new_array = []
   cool.map do |x|
-    binding.pry
+    # binding.pry
     if x[:temperature] == "cool"
       new_array << x
     end
