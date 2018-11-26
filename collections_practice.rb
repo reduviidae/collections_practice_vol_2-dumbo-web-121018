@@ -100,5 +100,6 @@ def organize_schools(schools)
   schools.map do |name|
     binding.pry
     if name[1][:location]
+    end
   end
 end
