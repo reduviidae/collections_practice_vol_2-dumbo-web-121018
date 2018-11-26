@@ -85,7 +85,7 @@ def find_cool(cool)
  new_array = []
   cool.map do |x|
     binding.pry
-    if x[:temperature] == cool
+    if x[:temperature] == "cool"
       new_array << x
     end
   end
