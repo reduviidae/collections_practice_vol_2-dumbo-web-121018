@@ -96,5 +96,7 @@ def find_cool(cool)
 end
 
 def organize_schools(schools)
-  binding.pry
+  schools.map do |name|
+    binding.pry
+  end
 end
