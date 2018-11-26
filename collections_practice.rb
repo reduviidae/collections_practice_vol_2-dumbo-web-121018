@@ -80,6 +80,9 @@ end
 # h.select {|k,v| k > "a"}  #=> {"b" => 200, "c" => 300}
 # h.select {|k,v| v < 200}  #=> {"a" => 100}
 
+# using delete_if on arrays
+# a.delete_if {|x| x >= "b" } 
+
 def find_cool(cool)
  # binding.pry
  new_array = []
@@ -89,7 +92,7 @@ def find_cool(cool)
       new_array << x
     end
   end
-  new_array.delete_if
+  new_array.delete_if {|y| y == nil}
 end
 
 def organize_schools(schools)
