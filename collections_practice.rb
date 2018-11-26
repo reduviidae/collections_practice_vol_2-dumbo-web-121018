@@ -96,7 +96,8 @@ def find_cool(cool)
 end
 
 def organize_schools(schools)
+  sorted_schools = {"Chicago" => [], "NYC" => [], "SF" => []}
   schools.map do |name|
-    # binding.pry
+    binding.pry
   end
 end
