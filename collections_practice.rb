@@ -107,4 +107,5 @@ def organize_schools(schools)
       sorted_schools["SF"] << name[0]
     end
   end
+  sorted_schools
 end
