@@ -105,21 +105,18 @@ end
 # a = [ "a", "b", "c" ]
 # a.delete_if {|x| x >= "b" }   #=> ["a"]
 
-def merge_data(array1, array2)
+def merge_data(arr1, arr2)
+  arr2[0].map do |name, prop_hash| #loop over arr2 with map
   # binding.pry
-  new_array = []
-  i = 0 
-  binding.pry
-  while i < array1.length
-    array1.each do |element|
-      new_array << element
+    new_prop_hash = {} # make a new hash to populate
+    arr1.each do |new_attr_hash| #loop over arr1 within the loop of arr2
+    # binding.pry
+      if new_attr_hash[:first_name] == name #use conditional to check if key exists
+        new_prop_hash = prop_hash.merge(new_attr_hash) #call .merge if it does
+      end
     end
-    array2[i].each do |key, value|
-      new_array[i] << value
-    end
-    i += 1
+    new_prop_hash #return new, merged hash
   end
-  new_array
 end
 
 # using select on hashes
