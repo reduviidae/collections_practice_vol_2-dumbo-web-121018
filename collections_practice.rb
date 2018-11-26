@@ -89,6 +89,7 @@ def find_cool(cool)
       new_array << x
     end
   end
+  new_array.delete_if
 end
 
 def organize_schools(schools)
