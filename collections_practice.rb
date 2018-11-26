@@ -60,50 +60,6 @@ def count_elements(array)
   return mutated
 end
 
-# stack overflow suggestions for reference
-# # v1[0].values.map.with_index {|v, i| v2[i].merge(v)}
-#
-# # a.merge(b) { |k, x, y| x + y }
-
-# pseudo code from Benjamin
-# 1. construct a while loop so we can go through array1 and build off what we have
-# 2. find the first name so we can then go to array 2 and find the extra information that we need
-# 3. iterate through the value of the first name, adding each key value pair to the current hash that we have in array1
-# 
-
-## first attempt at merge_data for reference
-# def merge_data(array1, array2)
-#  # binding.pry
-#  i = 0 
-#  x = 0
-#  new_array = []
-#  object1 = {}
-#  object2 = {}
-#  while i < array1.length 
-#    array1[i].each do |key, value|
-#      keyHolder = key 
-#      valueHolder = value
-#      object1[keyHolder] = valueHolder
-#    end
-#    i += 1
-#  end
-#  # binding.pry
-#  while x < array2.length
-#    array2[x].each do |key, value|
-#      keyHolder = key
-#      valueHolder = value
-#      object2[keyHolder] = valueHolder
-#    end
-#    x += 1
-#  end
-#  binding.pry
-#  object1.merge(object2)
-# end
-
-
-# delete_if syntax
-# a = [ "a", "b", "c" ]
-# a.delete_if {|x| x >= "b" }   #=> ["a"]
 
 def merge_data(arr1, arr2)
   arr2[0].map do |name, prop_hash| #loop over arr2 with map
@@ -124,20 +80,32 @@ end
 # h.select {|k,v| k > "a"}  #=> {"b" => 200, "c" => 300}
 # h.select {|k,v| v < 200}  #=> {"a" => 100}
 
+# using delete_if on arrays
+# a.delete_if {|x| x >= "b" } 
+
 def find_cool(cool)
  # binding.pry
-  i = 0
-  object = []
-  # binding.pry
-  while i < cool.length
-    if cool[:tempterature] == "cool"
-      object << cool[i]
+ new_array = []
+  cool.map do |x|
+    # binding.pry
+    if x[:temperature] == "cool"
+      new_array << x
     end
-    i += 1
   end
-  object
+  new_array.delete_if {|y| y == nil}
 end
 
 def organize_schools(schools)
-  schools.to_h.sort
+  sorted_schools = {"Chicago" => [], "NYC" => [], "SF" => []}
+  schools.map do |name|
+    # binding.pry
+    if name[1][:location] == "Chicago"
+      sorted_schools["Chicago"] << name[0]
+    elsif name[1][:location] == "NYC"
+      sorted_schools["NYC"] << name[0]
+    else name[1][:location] == "SF"
+      sorted_schools["SF"] << name[0]
+    end
+  end
+  sorted_schools
 end
