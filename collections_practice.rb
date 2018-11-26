@@ -100,6 +100,7 @@ def organize_schools(schools)
   schools.map do |name|
     binding.pry
     if name[1][:location] == "Chicago"
+      sorted_schools["Chicago"] << name[0]
     end
   end
 end
